@@ -1,3 +1,4 @@
+package com.practice;
 
 public class Mix4 {
 	int counter = 0;

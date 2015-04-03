@@ -1,4 +1,4 @@
-package com.java.udemybasics;
+package com.practice;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package com.java.udemyscratchpad;
+package com.practice;
 
 /**
  * Created with IntelliJ IDEA.

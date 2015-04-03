@@ -1,4 +1,4 @@
-package com.java.udemybasics;
+package com.practice;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,14 +9,14 @@ package com.java.udemybasics;
  */
 
 
-class Machine{
+class Machne{
   public void start(){
     System.out.println("Machine started.");
   }
 
 }
 
-class Camera extends Machine {
+class Camra extends Machne {
   public void start(){
     System.out.println("Camera started");
   }
@@ -29,15 +29,15 @@ class Camera extends Machine {
 public class UpDownCasting {
   public static void main(String[] args) {
 
-    Machine machine1 = new Machine();
-    Camera camera1 = new Camera();
+    Machine1 machine1 = new Machine1();
+    Camra camera1 = new Camra();
 
     machine1.start();
     camera1.start();
     camera1.snap();
 
     //Upcasting
-    Machine machine2 = camera1;   //polymorphism - referring to child object instead of parent
+    Machne machine2 = camera1;   //polymorphism - referring to child object instead of parent
     System.out.println("Upcasting================");
     machine2.start();            //going to execute start() method in Machine class, because object refers to Machine
     //machine2.snap();         wont work, it is the reference variable that decides which method you can call

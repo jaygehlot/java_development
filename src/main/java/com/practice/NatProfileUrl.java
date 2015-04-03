@@ -1,4 +1,4 @@
-package com.java.udemyscratchpad;
+package com.practice;
 
 //import oracle.jdbc.driver.OracleDriver;
 import java.sql.*;

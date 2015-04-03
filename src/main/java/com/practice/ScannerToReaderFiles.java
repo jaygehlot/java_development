@@ -1,4 +1,4 @@
-package com.java.udemyscratchpad;
+package com.practice;
 
 import java.io.File;
 import java.util.Scanner;

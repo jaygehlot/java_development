@@ -1,4 +1,4 @@
-package com.java.udemyscratchpad.food;
+package food;
 
 /**
  * Created with IntelliJ IDEA.

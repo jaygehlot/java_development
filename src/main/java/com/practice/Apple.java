@@ -1,4 +1,6 @@
-import com.java.udemyscratchpad.food.Fruit;
+package com.practice;
+
+import food.Fruit;
 
 /**
  * Created with IntelliJ IDEA.

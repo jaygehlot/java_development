@@ -1,4 +1,4 @@
-package com.java.udemybasics;
+package com.practice;
 
 /**
  * Created with IntelliJ IDEA.

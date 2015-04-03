@@ -1,6 +1,6 @@
-package com.java.udemyscratchpad;
+package com.practice;
 
-import com.java.udemybasics.Plant;
+//import com.java.udemybasics.Plant;
 
 /**
  * Created with IntelliJ IDEA.

@@ -1,3 +1,5 @@
+package com.practice;
+
 class Dog{
 	private int size; 
 	
