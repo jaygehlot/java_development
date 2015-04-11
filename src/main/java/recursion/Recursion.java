@@ -10,12 +10,30 @@ package recursion;
 public class Recursion {
 
     public static void main(String[] args) {
-        calculate(4);
+
+        //factor of 4 = 4*3*2*1
+
+        System.out.println(factorial(4));
     }
 
-    private static void calculate(int i) {
-        System.out.println(i);
+    private static int factorial(int value) {
+        System.out.println(value);
 
-        calculate(i);
+        //here method is being called within method - recursively
+        //however this will give throw a stackoverflow exception because factorial is calling factorial which is calling factorial
+
+        if (value == 1) {
+            return 1; //breaks out of the code
+        }
+
+        return factorial(value - 1) * value;
+
+        //an area exists in the jvm called the stack
+        // stack is responsible for remembering local variables and which method called which method and storing this information
+        // this information is used for recalling which method to go back to once the called method has been executed
+        //stack is relatively small area which remembers local variables and function calls
+
+        //all the values are getting stored on the stack whilst the factorial is being calculated
+
     }
 }

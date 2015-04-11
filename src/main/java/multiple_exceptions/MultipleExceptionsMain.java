@@ -1,4 +1,6 @@
-package com.java.udemyscratchpad.multiple_exceptions;
+package multiple_exceptions;
+
+import multiple_exceptions.MultipleExceptions;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
