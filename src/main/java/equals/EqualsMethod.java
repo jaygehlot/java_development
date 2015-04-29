@@ -47,7 +47,7 @@ public class EqualsMethod {
         //makes object reference person1, point to person2 object
         //person1 = person2;
 
-        //== checks for if the references are pointing to the same objects
+        //== checks for if the references are pointing to the same objects, for non-primitive objects
         System.out.println(person1 == person2);
 
         //until the equals method has been implemented for the Person class, this will still be false
@@ -72,6 +72,9 @@ public class EqualsMethod {
         System.out.println("Integer");
         System.out.println(integer1 == integer2);
 
+        //dont compare non-primitive objects with == , only use == to check if two references point to the same
+        //object, always use .equals with non primitives
+
 
         String text1 = "Hello";
         String text2 = "Hello";
@@ -85,7 +88,9 @@ public class EqualsMethod {
         System.out.println(text4);
         //this will now print out false, because we have two different objects, == checks if objects are referring to
         //the same thing
-        System.out.println(text3==text4);
+
+        System.out.println(text3==text4); //will be false since text4 created a new object (substring returns a new String object)
+
         //this will print out true, because the object that text3 is pointing to, contains the same value, as what text4 is pointing to
         System.out.println(text3.equals(text4));
 
