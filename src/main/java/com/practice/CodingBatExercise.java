@@ -20,8 +20,45 @@ public class CodingBatExercise {
     // System.out.println(countXX("xxx"));
     //  System.out.println(doubleX("xaxxx"));
      // System.out.println(stringBits("Heelloo"));
-      System.out.println(last2("hixxhi"));
+      //System.out.println(arrayFront9(new int[] {1, 2, 3, 4, 9}));
+      System.out.println(array123(new int[] {1, 2}));
   }
+
+
+    private static boolean array123(int[] nums) {
+        boolean result = false;
+
+        for (int i = 0; i < nums.length; i++) {
+
+            if (nums.length >= i+2 && nums.length > 2) {
+                if (nums[i] == 1 && nums[i + 1] == 2 && nums[i + 2] == 3) {
+                    result = true;
+                    break;
+                } else {
+                    result = false;
+                }
+            }
+        }
+        return result;
+    }
+
+
+
+
+    private static boolean arrayFront9(int[] nums) {
+        boolean result = false;
+
+        for (int i=0; i < nums.length; i++) {
+            if (nums[i] == 9 && i <4) {
+                result = true;
+                break;
+            } else result = false;
+        }
+        return result;
+    }
+
+
+
 
     public static int last2(String str) {
         // Screen out too-short string case.
