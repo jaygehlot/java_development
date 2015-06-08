@@ -21,9 +21,40 @@ public class CodingBatExercise {
     //  System.out.println(doubleX("xaxxx"));
      // System.out.println(stringBits("Heelloo"));
       //System.out.println(arrayFront9(new int[] {1, 2, 3, 4, 9}));
-      System.out.println(array123(new int[] {1, 2}));
+      //System.out.println(array123(new int[] {1, 2}));
+      //System.out.println(stringMatch("abc", "axc"));
+      System.out.println(removeX("xxHxix"));
+
   }
 
+    private static String removeX(String str) {
+        if (str.equals("x")){
+            return "x";
+        } else if (str.equals("")){
+            return "";
+        }
+        else if (str.charAt(0) == 'x' && str.charAt(str.length() - 1) == 'x'){
+            String newString = str.replaceAll("x", "");
+            return "x" + newString + "x";
+        } else {
+            return str.replaceAll("x", "");
+        }
+    }
+
+    private static int stringMatch(String a, String b){
+        int counter = 0;
+        int shorterStringLength = Math.min(a.length(), b.length());
+
+        for (int i=0; i < shorterStringLength - 1; i++) {
+            String stringASub = a.substring(i, i+2);
+            String stringBSub = b.substring(i, i+2);
+
+            if (stringASub.equals(stringBSub)) {
+                counter++;
+            }
+        }
+        return counter;
+    }
 
     private static boolean array123(int[] nums) {
         boolean result = false;
