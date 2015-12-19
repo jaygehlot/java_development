@@ -56,7 +56,7 @@ class Camera extends Machine{
       showListMk3(list1);
 
                                       //ArrayList<Camera> is not a subclass of ArrayList<Machine> even though Camera extends Machine
-    }                                //the ? (wildcard operator) lets us pass a arraylist of any type to to the method
+    }                                //the ? (wildcard operator) lets us pass a list of any type to to the method
                                     //ArrayList<?>
 
     public static void showListObj(ArrayList list) {

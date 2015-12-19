@@ -31,10 +31,10 @@ public class WriteObjects {
             //serialise person array
             objectOutputStream.writeObject(person);
 
-            //serialise person arraylist
+            //serialise person list
             objectOutputStream.writeObject(personArrayList);
 
-            //write out the size of the person arraylist
+            //write out the size of the person list
             objectOutputStream.writeInt(personArrayList.size());
 
             for(Person p: personArrayList){

@@ -1,5 +1,11 @@
 package com.practice;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * Created with IntelliJ IDEA.
  * User: 41629Ja
@@ -23,9 +29,185 @@ public class CodingBatExercise {
       //System.out.println(arrayFront9(new int[] {1, 2, 3, 4, 9}));
       //System.out.println(array123(new int[] {1, 2}));
       //System.out.println(stringMatch("abc", "axc"));
-      System.out.println(removeX("xxHxix"));
+      //System.out.println(removeX("xxHxix"));
 
+      //System.out.println(altChars("kitten"));
+      //System.out.println(isPrimeNumber(251));
+
+      //System.out.println(array667(new int[]{6,7,2,6}));
+      System.out.println(noTriples(new int[] {1, 1, 1}));
+      //IntegerCacheExample();
+      Book[] books =  {new Book(3, "To Kill A Mockingbird", "English", 3), new Book(4, "Jay's Book", "Hindi", 700)};
+
+      //System.out.println(books[0]);
+      //bigDecimalTest();
+      //using an ArrayList is better
   }
+
+    static class Book {
+        private int number;
+        private String name;
+        private String language;
+        private int price;
+
+        @Override
+        public String toString() {
+            return "Book{" +
+                    "number=" + number +
+                    ", name='" + name + '\'' +
+                    ", language='" + language + '\'' +
+                    ", price=" + price +
+                    '}';
+        }
+
+       private Book(int number, String name, String language, int price) {
+            this.name = name;
+            this.number = number;
+            this.language = language;
+            this.price = price;
+        }
+    }
+
+    private static int array667(int[] nums) {
+        int result = 0;
+        for (int i=0; i < nums.length-1; i++) {
+            if (nums[i] == 6 && (nums[i+1] == 6 || nums[i+1] == 7)) {
+                result++;
+            }
+        }
+        return result;
+    }
+
+    private static boolean noTriples(int[] nums) {
+
+        for (int i=0; i < nums.length-2; i++) {
+            int first = nums[i];
+            if (nums[i+1]==first && nums[i+2]==first)
+                return false;
+        }
+
+        return true;
+    }
+
+
+
+    public static void bigDecimalTest() {
+        BigDecimal value1 = new BigDecimal(10);
+        BigDecimal value2 = new BigDecimal(20);
+
+        System.out.println(value1.compareTo(value2));
+    }
+
+    private static String numberOfOccurencesOfChar(String str) {
+
+        StringBuilder output = new StringBuilder();
+        Map<Character, Integer> characterStore = new HashMap<>();
+        Set<Character> processedChars = new HashSet<>();
+
+        char testChar, currentChar;
+
+        for (int i=0; i <= str.length() - 1; i++) {
+            testChar = str.charAt(i);
+
+            for (int j = 0; j <= str.length() - 1; j++) {
+                currentChar = str.charAt(j);
+
+                if (testChar == currentChar && !processedChars.contains(currentChar)) {
+                    if (characterStore.get(currentChar) == null) {
+                        characterStore.put(currentChar, 1);
+                    } else if (characterStore.get(currentChar) != null) {
+                        characterStore.put(currentChar, characterStore.get(currentChar) + 1);
+                    }
+                }
+            }
+            processedChars.add(testChar);
+        }
+
+        for (Map.Entry e: characterStore.entrySet()){
+            output.append(e.getKey()).append("=").append(e.getValue()).append("; ");
+        }
+        return output.toString();
+    }
+
+
+    private static void IntegerCacheExample() {
+        Integer x = 1;
+        Integer y = 1;
+
+        System.out.println("x==y " + (x == y));
+        System.out.println("x.equals(y) " + (x.equals(y)));
+
+
+        Integer x1 = 1000;
+        Integer y1 = 1000;
+
+        System.out.println("x1==y1 " + (x1 == y1));
+        System.out.println("x1.equals(y1) " + (x1.equals(y1)));
+
+    }
+
+
+    private static String numberOfOccurencesOfCharPart2(String str) {
+
+        Map<Character, Integer> characterStore = new HashMap<>();
+
+        char testChar;
+
+        for (int i=0; i <= str.length() - 1; i++) {
+            testChar = str.charAt(i);
+            Integer value;
+            if (characterStore.containsKey(testChar)) {
+                value = characterStore.get(testChar);
+                value++;
+            } else {
+                value = new Integer(1);
+            }
+            characterStore.put(testChar, value);
+        }
+
+        StringBuilder output = new StringBuilder();
+        for (Map.Entry e: characterStore.entrySet()){
+            output.append(e.getKey()).append("=").append(e.getValue()).append("; ");
+        }
+        return output.toString();
+    }
+
+    /**
+     * Tests if a number is a prime number or not
+     * Returns true if it is and false if not
+     * @param number
+     * @return
+     */
+    private static boolean isPrimeNumber(int number) {
+        boolean result = true;
+
+        if(number == 1) {
+            result = false;
+        }
+
+        if (number !=1 ) {
+            for (int i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    result = false;
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
+    private static String altChars(String string){
+        StringBuilder sb = new StringBuilder();
+        for (int i=0; i < string.length() ; i+=4){
+            if (i <= string.length()) {
+                sb.append(string.charAt(i));
+            }
+            if ( i + 1 < string.length()) {
+                sb.append(string.charAt(i + 1));
+            }
+        }
+        return sb.toString();
+    }
 
     private static String removeX(String str) {
         if (str.equals("x")){
