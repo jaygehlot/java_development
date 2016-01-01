@@ -1,4 +1,4 @@
-package collections;
+package collections_and_sorting_collections;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
