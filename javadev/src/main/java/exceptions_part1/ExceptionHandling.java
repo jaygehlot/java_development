@@ -1,4 +1,4 @@
-package com.java.udemyscratchpad.exceptions_part1;
+package exceptions_part1;
 
 import java.io.File;
 import java.io.FileNotFoundException;

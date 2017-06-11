@@ -1,4 +1,4 @@
-package com.java.polymorphism;
+package polymorphism;
 
 /**
  * Created with IntelliJ IDEA.
