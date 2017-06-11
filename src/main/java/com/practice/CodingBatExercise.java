@@ -1,10 +1,16 @@
 package com.practice;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,7 +21,7 @@ import java.util.Set;
  */
 public class CodingBatExercise {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws ParseException {
     //System.out.println(loneTeen(13, 99));
     //System.out.println(delDel("adelbc"));
     //System.out.println(startOz("oz"));
@@ -32,17 +38,107 @@ public class CodingBatExercise {
       //System.out.println(removeX("xxHxix"));
 
       //System.out.println(altChars("kitten"));
-      //System.out.println(isPrimeNumber(251));
+      //System.out.println(isPrimeNumber(25));
+      //System.out.println(getEnvVar());
+//      System.out.println(makeOutWord("<<>>", "Yay"));
+      //System.out.println(stairCase(6));
+      //System.out.println(convertDateFormat("07:05:45PM"));
+      //System.out.println(calculateTotalBill());
 
       //System.out.println(array667(new int[]{6,7,2,6}));
-      System.out.println(noTriples(new int[] {1, 1, 1}));
+      //System.out.println(noTriples(new int[] {1, 1, 1}));
       //IntegerCacheExample();
-      Book[] books =  {new Book(3, "To Kill A Mockingbird", "English", 3), new Book(4, "Jay's Book", "Hindi", 700)};
+      //Book[] books =  {new Book(3, "To Kill A Mockingbird", "English", 3), new Book(4, "Jay's Book", "Hindi", 700)};
 
       //System.out.println(books[0]);
       //bigDecimalTest();
       //using an ArrayList is better
+      System.out.println(numberOfOccurencesOfCharPart2("JayGehlotEngineerInTest"));
+      System.out.println(numberOfOccurencesOfCharPart3("JayGehlotEngineerInTest"));
+      System.out.println(numberOfOccurencesOfCharPart4("JayGehlotEngineerInTest"));
+      //recursiveMethod("Care and composition#Composition#88% polyamide, 12% elastane ;;;(exclusive of trimmings);;;" +
+             // "Care instructions#Machine washable, tumble dry");
   }
+
+    public static void keepSplitting(String text, String delimiter) {
+
+    }
+
+    public static void recursiveMethod(String text) {
+        List<String> res = new ArrayList<>();
+        Pattern p = Pattern.compile("[#|;]+");
+        String s = text.replace("<multisep/>", "");
+        Matcher m = p.matcher(s);
+        int pos = 0;
+
+        while (m.find()) {
+            if (pos != m.start()) {
+                res.add(s.substring(pos, m.start()));
+            }
+            res.add(m.group());
+            pos = m.end();
+        }
+        if (pos != s.length()) {
+            res.add(s.substring(pos));
+        }
+        for (String t : res) {
+            System.out.println("'"+t+"'");
+        }
+    }
+
+    public static int calculateTotalBill() {
+        double mealCost = 12.00;
+        int tipPercent = 20;
+        int taxPercent = 8;
+
+        double tipAmount = (tipPercent / 100.00) * mealCost;
+        double taxAmount =  (taxPercent / 100.00) * mealCost;
+
+        return (int) Math.round(mealCost + tipAmount + taxAmount);
+
+    }
+
+    public static String convertDateFormat(String inputDate) throws ParseException {
+
+
+        SimpleDateFormat date12Format = new SimpleDateFormat("hh:mm:ssa");
+
+        SimpleDateFormat date24Format = new SimpleDateFormat("HH:mm:ss");
+
+        return date24Format.format(date12Format.parse(inputDate));
+    }
+
+
+
+    public static String makeOutWord(String out, String word) {
+        int breakPoint = out.length() / 2;
+        return out.substring(0, breakPoint) + word + out.substring(breakPoint, out.length());
+    }
+
+    private static String stairCase(int totalNumberOfLevels) {
+        final StringBuilder sb = new StringBuilder();
+        String finalStaircase = null;
+        for (int i=1; i <= totalNumberOfLevels; i++) {
+            prependSpacesForLevel(sb, totalNumberOfLevels - i);
+            finalStaircase = numberOfStepsForLevel(sb, i).toString();
+        }
+        return finalStaircase;
+    }
+
+    private static StringBuilder numberOfStepsForLevel(final StringBuilder sb, int currentLevel) {
+        for (int i=1; i <= currentLevel; i++) {
+            sb.append("#");
+        }
+        sb.append("\n");
+        return sb;
+    }
+
+    private static StringBuilder prependSpacesForLevel(final StringBuilder sb, int numOfSpacesToPrepend) {
+        for (int i=0; i < numOfSpacesToPrepend; i++) {
+            sb.append(" ");
+        }
+        return sb;
+    }
 
     static class Book {
         private int number;
@@ -66,6 +162,10 @@ public class CodingBatExercise {
             this.language = language;
             this.price = price;
         }
+    }
+
+    private static String getEnvVar() {
+        return System.getenv("API_ENDPOINT");
     }
 
     private static int array667(int[] nums) {
@@ -168,6 +268,42 @@ public class CodingBatExercise {
         StringBuilder output = new StringBuilder();
         for (Map.Entry e: characterStore.entrySet()){
             output.append(e.getKey()).append("=").append(e.getValue()).append("; ");
+        }
+        return output.toString();
+    }
+
+    private static String numberOfOccurencesOfCharPart3(String str) {
+        Map<Character, Integer> characterStore = new HashMap<>();
+
+        for (int i=0; i < str.length(); i++) {
+            char testChar = str.charAt(i);
+            if (characterStore.containsKey(testChar)) {
+                characterStore.put(testChar, characterStore.get(testChar)+1);
+            } else {
+                characterStore.put(testChar, 1);
+            }
+        }
+
+        StringBuilder output = new StringBuilder();
+        for (Map.Entry e: characterStore.entrySet()){
+            output.append(e.getKey()).append("=").append(e.getValue()).append("; ");
+        }
+        return output.toString();
+    }
+
+    private static String numberOfOccurencesOfCharPart4(String str) {
+        int[] characterStore = new int[256];
+
+        for (int i=0; i < str.length(); i++) {
+            char testChar = str.charAt(i);
+            characterStore[(int)testChar] = characterStore[(int)testChar] + 1;
+        }
+
+        StringBuilder output = new StringBuilder();
+        for (int i=0; i < characterStore.length; i++){
+            if (characterStore[i] > 0) {
+                output.append((char)i).append("=").append(characterStore[i]).append("; ");
+            }
         }
         return output.toString();
     }
