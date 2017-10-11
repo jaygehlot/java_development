@@ -1,4 +1,4 @@
-package timbuchalka.threads;
+package timbuchalka_threads;
 
 public class ThreadColor {
 

@@ -1,6 +1,6 @@
-package timbuchalka.threads;
+package timbuchalka_threads;
 
-import static timbuchalka.threads.ThreadColor.ANSI_RED;
+import static timbuchalka_threads.ThreadColor.ANSI_RED;
 
 public class MyRunnable implements Runnable {
 

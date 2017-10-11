@@ -15,7 +15,7 @@ class ParentMachine{
 }
 
 interface InterfacePlant{
-    public void grow();
+    void grow();
 }
 
 

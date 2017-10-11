@@ -1,6 +1,6 @@
-package timbuchalka.threads;
+package timbuchalka_threads;
 
-import static timbuchalka.threads.ThreadColor.*;
+import static timbuchalka_threads.ThreadColor.*;
 
 public class Main {
 

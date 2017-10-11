@@ -11,4 +11,23 @@ import food.Fruit;
  */
 
 public class Apple extends Fruit {
+
+    private int weight;
+    private String colour;
+
+    public boolean isGreenApple() {
+        return "green".equals(getColour());
+    }
+
+    public boolean isHeavyApple() {
+        return getWeight() > 150;
+    }
+
+    public String getColour() {
+        return colour;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
 }

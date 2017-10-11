@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
+/**
+ * Based on https://www.youtube.com/watch?v=_HzzKfw9yeE
+ */
 public class HighOrderFunction {
 
     public static void main(String[] args) {
