@@ -43,17 +43,29 @@ public class EqualsMethod {
 
         Person person1 = new Person(5, "Bob");
         Person person2 = new Person(5, "Bob");
+        Person person3 = new Person(6, "Jay");
 
         //makes object reference person1, point to person2 object
         //person1 = person2;
 
         //== checks for if the references are pointing to the same objects, for non-primitive objects
+        System.out.println("Are references pointing to same object?===============");
         System.out.println(person1 == person2);
 
         //until the equals method has been implemented for the Person class, this will still be false
         // because its taking equals from the Object class where == is still being used, once equals has been
         //implemented in Person, this will then be True
+        System.out.println("================================EQUALS");
         System.out.println(person1.equals(person2));
+        System.out.println("===============================HASHCODE");
+        System.out.println(person1.hashCode());
+        System.out.println(person2.hashCode());
+        System.out.println("\n");
+
+        System.out.println("Person 2 and Person 3 Equals:" + person2.equals(person3));
+        System.out.println("Person2 hashcode:" + person2.hashCode());
+        System.out.println("Person3 hashcode:" + person3.hashCode());
+        System.out.println("\n");
 
         Double double2 = 72.2;
         Double double3 = 72.2;

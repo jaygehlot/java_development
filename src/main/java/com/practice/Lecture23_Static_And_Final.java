@@ -1,7 +1,7 @@
-package java.com.practice;
+package com.practice;
 
 
-class Thing{
+class TestThing{
 	public String name;
 	public static String description;
 	
@@ -19,13 +19,13 @@ public class Lecture23_Static_And_Final {
 	
 	public static void main(String args[]){
 		
-		Thing.description = "I am a thing";
+		TestThing.description = "I am a thing";
 		
 		System.out.println(Thing.description);
-		Thing.showInfo();
+		TestThing.showInfo();
 		
-		Thing thing1 = new Thing();
-		Thing thing2 = new Thing();
+		TestThing thing1 = new TestThing();
+		TestThing thing2 = new TestThing();
 		
 		thing1.name = "Bob";
 		thing2.name = "Sue";
