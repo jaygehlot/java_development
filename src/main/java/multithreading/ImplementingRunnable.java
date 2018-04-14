@@ -1,6 +1,6 @@
 package multithreading;
 
-class Runner extends Thread {
+class AnotherRunner implements Runnable {
 
     public void run() {
         for (int i=0; i < 10; i++) {
@@ -13,17 +13,18 @@ class Runner extends Thread {
             e.printStackTrace();
         }
     }
+
 }
 
-class FirstThread {
+public class ImplementingRunnable {
 
     public static void main(String[] args) {
-        Runner runner = new Runner();
-        //if you call run(), the code is run in the main thread, start() spawns off a new thread
-        runner.start();
+        Thread thread1 = new Thread(new AnotherRunner());
+        Thread thread2 = new Thread(new AnotherRunner());
 
-
-        Runner runner1 = new Runner();
-        runner1.start();
+        thread1.start();
+        thread2.start();
     }
+
+
 }
