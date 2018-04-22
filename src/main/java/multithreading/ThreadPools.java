@@ -1,7 +1,5 @@
 package multithreading;
 
-import org.omg.CORBA.TIMEOUT;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -34,24 +32,27 @@ public class ThreadPools {
 
     public static void main(String[] args) {
 
-        //executorservice handles task management for each of its threads
+        //ExecutorService handles task management for each of its threads
         //starting 2 threads, once that thread has finished its work and is idle
         //it will start a new task
-        //recycling threads in thread pool
+        //recycling threads in thread pool due to overhead of creating a new thread each time
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
         for (int i=0; i<5; i++) {
             executor.submit(new SimpleProcessor(i));
         }
 
-        //initiates shutdown of the ExecutorService. Waits for all existing tasks to
-        // complete execution, accepts no new tasks
+        //initiates shutdown of the ExecutorService. Waits for all existing/current thread tasks to
+        // complete doing what they are doing, and then terminate, accepts no new tasks
         //waits for all threads to complete doing what they are doing
         executor.shutdown();
 
         System.out.println("all tasks submitted");
 
         try {
+            //awaitTermination doesn't shutdown the executor
+            //suppose you want to wait for all tasks to complete finish what they are doing
+            //http://www.baeldung.com/java-executor-service-tutorial
             executor.awaitTermination(1, TimeUnit.DAYS);
         } catch (InterruptedException e) {
             e.printStackTrace();
