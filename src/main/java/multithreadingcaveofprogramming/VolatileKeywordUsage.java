@@ -1,10 +1,10 @@
-package multithreading;
+package multithreadingcaveofprogramming;
 
 import java.util.Scanner;
 
 class Processor extends Thread {
 
-    //prevent thread from caching the variable, if not changed within thread, if it caches then the thread runs forever
+    //volatile prevent thread from caching the variable, if not changed within thread, if it caches then the thread runs forever
     private volatile boolean running = true;
 
     /**

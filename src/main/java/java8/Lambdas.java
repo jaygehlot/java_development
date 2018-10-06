@@ -1,3 +1,4 @@
+package java8;
 
 @FunctionalInterface
 //this just has one single method

@@ -1,4 +1,4 @@
-package multithreading;
+package multithreadingcaveofprogramming;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -39,7 +39,7 @@ public class CountDownLatches {
 
         //each thread gets one Processor
         for(int i=0; i<3; i++)  {
-            executorService.submit(new CountDownProcessor(latch));
+            executorService.execute(new CountDownProcessor(latch));
         }
 
         try {

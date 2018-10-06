@@ -3,14 +3,13 @@ package com.practice;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toMap;
 
 /**
  * Created with IntelliJ IDEA.
@@ -53,16 +52,71 @@ public class CodingBatExercise {
       //System.out.println(books[0]);
       //bigDecimalTest();
       //using an ArrayList is better
-      System.out.println(numberOfOccurencesOfCharPart2("JayGehlotEngineerInTest"));
-      System.out.println(numberOfOccurencesOfCharPart3("JayGehlotEngineerInTest"));
-      System.out.println(numberOfOccurencesOfCharPart4("JayGehlotEngineerInTest"));
+
+      //System.out.println(numberOfOccurencesOfCharPart2("JayGehlotEngineerInTest"));
+      //System.out.println(numberOfOccurencesOfCharPart3("JayGehlotEngineerInTest"));
+      //System.out.println(numberOfOccurencesOfCharPart4("JayGehlotEngineerInTest"));
+
       //recursiveMethod("Care and composition#Composition#88% polyamide, 12% elastane ;;;(exclusive of trimmings);;;" +
              // "Care instructions#Machine washable, tumble dry");
+
+      //System.out.println(convertBinaryArrayToInt(Arrays.asList(1, 1, 1, 1)));
+
+
+      System.out.println(codingBatmapAB4(new HashMap<String, String>() {{
+          put("a","aaa");
+          put("b","bb");
+          put("c","cake");
+      }}));
+
+
   }
 
-    public static void keepSplitting(String text, String delimiter) {
+    private static Map<String, String> codingBatmapAB4(Map<String, String> map) {
 
+        final String keyA = map.get("a");
+        final String keyB = map.get("b");
+
+        if ((keyA != null) && (keyB != null)) {
+            if (keyA.length() > keyB.length()) {
+                map.put("c", keyA);
+            } else if (keyB.length() > keyA.length()) {
+                map.put("c", keyB);
+            } else {
+                map.put("a", "");
+                map.put("b", "");
+            }
+        }
+
+        return map;
     }
+
+    public static int convertBinaryArrayToInt(List<Integer> binary) {
+      StringBuilder internalBinary = new StringBuilder();
+      binary.forEach(entry -> internalBinary.append(entry));
+
+        return Integer.parseInt(internalBinary.toString(), 2);
+    }
+
+    private static Map<String, String> codingBatMap1ExerciseAB3(Map<String, String> map) {
+
+        Map<String, String> returnMap = new HashMap<>();
+
+        map.forEach((key, value) -> {
+            if (key.equals("a") && !map.containsKey("b")) {
+                returnMap.put("b", map.get("a"));
+            }
+
+            if (key.equals("b") && !map.containsKey("a")) {
+                returnMap.put("a", map.get("b"));
+            }
+
+        });
+
+        return Stream.concat(map.entrySet().stream(), returnMap.entrySet().stream())
+                .collect(toMap( Map.Entry::getKey, Map.Entry::getValue ));
+    }
+
 
     public static void recursiveMethod(String text) {
         List<String> res = new ArrayList<>();

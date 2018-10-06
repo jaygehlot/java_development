@@ -1,4 +1,4 @@
-package multithreading;
+package multithreadingcaveofprogramming;
 
 public class RunMultipleLocks {
 
