@@ -61,16 +61,27 @@ public class CodingBatExercise {
              // "Care instructions#Machine washable, tumble dry");
 
       //System.out.println(convertBinaryArrayToInt(Arrays.asList(1, 1, 1, 1)));
+      //System.out.println(wordOccurencesInArrays(new String[] { "jay", "gehlot", "gehlot"}));
+      System.out.println(lengthOfEachWordInArray(new String[] { "jay", "gehlot", "gehlot"}));
 
-
-      System.out.println(codingBatmapAB4(new HashMap<String, String>() {{
-          put("a","aaa");
-          put("b","bb");
-          put("c","cake");
-      }}));
-
-
+//      System.out.println(codingBatmapAB4(new HashMap<String, String>() {{
+//          put("a","aaa");
+//          put("b","bb");
+//          put("c","cake");
+//      }}));
   }
+
+    private static Map<String, Integer> wordOccurencesInArrays(String[] strings) {
+        return Arrays.stream(strings).collect(Collectors.toMap(s -> s, s -> 1, Integer::sum));
+    }
+
+    private static Map<String, Integer> lengthOfEachWordInArray(String[] strings) {
+        Map<String, Integer> result = new HashMap<>();
+        new HashSet<>(Arrays.asList(strings)).forEach(s -> result.put(s, s.length()));
+                        //loop through HashSet which only holds unique items, and stick the items and each one length in a hashmap
+        return result;
+
+    }
 
     private static Map<String, String> codingBatmapAB4(Map<String, String> map) {
 
