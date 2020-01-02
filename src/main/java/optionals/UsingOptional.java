@@ -12,6 +12,8 @@ public class UsingOptional {
 
         //System.out.println(getSecondWord.andThen(getWordCount).apply("jay"));
 
+            //Optional<String> myOptional = Optional.ofNullable(getSecondWord.apply("jay gehlot"));
+
         Optional<String> myOptional = Optional.ofNullable(getSecondWord.apply("jay gehlot"));
 
         System.out.println(myOptional.isPresent());
@@ -22,9 +24,11 @@ public class UsingOptional {
             myOptional.orElse("no value");
         }
 
-        System.out.println("isPresent");
+        //System.out.println("isPresent");
 
-        Optional.ofNullable(getSecondWord.apply("jay gehlot")).ifPresent(System.out::println);
+        System.out.println("========");
+        //Optional.ofNullable(getSecondWord.apply("jay")).ifPresent(System.out::println);
+        Optional.ofNullable(getSecondWord.apply("jay")).ifPresentOrElse(System.out::println, () -> System.out.println("some string") );
 
         //using map for whole thing
         System.out.println("Using a map");

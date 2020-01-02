@@ -16,7 +16,7 @@ public class OptionalSecondExample {
     }
 
     public static void main(String[] args) {
-        printSecondWord("jay gehlot");
+        //printSecondWord("jay gehlot");
         printSecondWord("jay");
         printSecondWord("");
 
