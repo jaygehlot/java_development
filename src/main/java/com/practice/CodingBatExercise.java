@@ -37,7 +37,7 @@ public class CodingBatExercise {
       //System.out.println(removeX("xxHxix"));
 
       //System.out.println(altChars("kitten"));
-      //System.out.println(isPrimeNumber(25));
+      System.out.println(isPrimeNumber(6));
       //System.out.println(getEnvVar());
 //      System.out.println(makeOutWord("<<>>", "Yay"));
       //System.out.println(stairCase(6));
@@ -374,7 +374,7 @@ public class CodingBatExercise {
     }
 
     /**
-     * Tests if a number is a prime number or not
+     * Tests if a number is a prime number (only full divisible by itself or 1) or not
      * Returns true if it is and false if not
      * @param number
      * @return

@@ -176,7 +176,7 @@ public class SortingLists {
         }
 
 
-        Collections.sort(people, new Comparator<MyPerson>() {
+        people.sort(new Comparator<MyPerson>() {
             @Override
             /**
              * Sorting by Name

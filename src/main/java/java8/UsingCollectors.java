@@ -1,9 +1,6 @@
 package java8;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -25,14 +22,9 @@ public class UsingCollectors {
         Double averageSalary = employees.stream().collect(Collectors.averagingDouble(value -> value.getSalary()));
         System.out.println(averageSalary);
 
-        Double totalSalaryOfAll = employees.stream()
-                .mapToDouble(Employee::getSalary)
-                .sum();
-        //OR
-        Double totalSalary = employees.stream().collect(Collectors.summingDouble(Employee::getSalary));
 
-        System.out.println(totalSalaryOfAll);
-        System.out.println(totalSalary);
+//        System.out.println(totalSalaryOfAll);
+//        System.out.println(totalSalary);
 
         findMaxiumumSalary(employees);
 
