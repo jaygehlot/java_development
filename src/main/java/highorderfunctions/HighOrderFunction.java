@@ -17,14 +17,14 @@ public class HighOrderFunction {
         BiFunction<List<Integer>, Predicate<Integer>, List<Integer>> filter;
 
         filter = (inputList, predicate) -> {
-            List<Integer> result = new ArrayList<>();
+            List<Integer> response = new ArrayList<>();
             //filter
             for (Integer element : list) {
                 if (predicate.test(element)) {
-                    result.add(element);
+                    response.add(element);
                 }
             }
-            return result;
+            return response;
         };
 
         System.out.println(filter.apply(list, x -> x % 2 == 0)); //spits out even numbers
